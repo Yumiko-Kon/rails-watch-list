@@ -1,0 +1,20 @@
+<h2><%= @list.name  %></h2>
+
+<% @list.bookmarks.each do|bookmark| %>
+<%= bookmark.comment %>
+<% end %>
+
+<% @list.movies.each do |movie| %>
+  <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+  <div>
+    <img src="<%= movie.poster_url %>" alt="<%= movie.title %>">
+    <h3><%= movie.title %> • <%= movie.rating %> <i class="fas fa-star star-yellow"></i></h3>
+    <p><%= movie.overview %></p>
+  </div>
+<% end %>
+
+<%# link_to "bookmark", new_list_bookmark_path(@bookmark) %>
+<%= link_to "book mark", new_list_bookmark_path(@list) %>
+    <%= link_to "go home page", root_path %>
+<%# @list.each do |list|
+ link_to list.title, list_path  %>

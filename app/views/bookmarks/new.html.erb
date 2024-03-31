@@ -1,0 +1,9 @@
+<h1>Bookmark</h1>
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment %>
+<%# f.input :movie_id, collection: @movies, prompt: "Select a movie"  %>
+  <%= f.association :movie, collection: @movies, prompt: "Select a movie"%>
+ <%# f.association :list, collection: @lists  %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+  <%= link_to "go home page", root_path %>
+<% end %>
